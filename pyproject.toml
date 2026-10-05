@@ -10,7 +10,7 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pyopenjtalk"
+name = "pyopenjtalk-ndy"
 dynamic = ["version"]
 description = "A python wrapper for OpenJTalk"
 readme = "README.md"
