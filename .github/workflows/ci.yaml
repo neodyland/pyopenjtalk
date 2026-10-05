@@ -107,7 +107,6 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pypi
-      url: https://pypi.org/p/pyopenjtalk
     permissions:
       id-token: write  # IMPORTANT: mandatory for trusted publishing
     steps:
