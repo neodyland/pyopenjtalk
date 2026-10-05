@@ -76,17 +76,13 @@ if os.name == "nt":  # Check if the OS is Windows
     cmake_found, cmake_version = check_cmake_in_path()
 
     if cmake_found:
-        print(
-            f"CMake is in the system path. Version: \
-              {cmake_version}"
-        )
+        print(f"CMake is in the system path. Version: \
+              {cmake_version}")
     else:
-        raise SystemError(
-            "CMake is not found in the \
+        raise SystemError("CMake is not found in the \
                           system path. Make sure CMake \
                           is installed and in the system \
-                          path."
-        )
+                          path.")
 
 # open_jtalk sources
 src_top = join("lib", "open_jtalk", "src")
@@ -101,9 +97,10 @@ if not exists(join(src_top, "mecab", "src", "config.h")):
     os.makedirs(build_dir, exist_ok=True)
     os.chdir(build_dir)
 
-    r = subprocess.run(["cmake", ".."])
-    r.check_returncode()
-    os.chdir(cwd)
+    try:
+        subprocess.run(["cmake", ".."], check=True)
+    finally:
+        os.chdir(cwd)
 
 all_src = []
 include_dirs = []

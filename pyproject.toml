@@ -2,10 +2,9 @@
 requires = [
     "setuptools>=64",
     "setuptools_scm>=8",
-    "cython>=0.29.16",
+    "cython>=3.0",
     "cmake",
-    "numpy>=1.25.0; python_version>='3.9'",
-    "oldest-supported-numpy; python_version<'3.9'",
+    "numpy>=1.26.0",
 ]
 build-backend = "setuptools.build_meta"
 
@@ -14,7 +13,7 @@ name = "pyopenjtalk-ndy"
 dynamic = ["version"]
 description = "A python wrapper for OpenJTalk"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 license.file = "LICENSE.md"
 authors = [{ name = "Ryuichi Yamamoto", email = "zryuichi@gmail.com" }]
 keywords = ["OpenJTalk", "Research"]
@@ -26,9 +25,11 @@ classifiers = [
     "Programming Language :: Cython",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "License :: OSI Approved :: MIT License",
     "Topic :: Scientific/Engineering",
     "Topic :: Software Development",
@@ -37,8 +38,7 @@ classifiers = [
 ]
 urls.Homepage = "https://github.com/r9y9/pyopenjtalk"
 dependencies = [
-    "importlib_resources; python_version<'3.9'",
-    "numpy>=1.20.0",
+    "numpy>=1.26.0",
     "tqdm",
 ]
 
@@ -52,17 +52,15 @@ docs = [
     "jupyter",
 ]
 dev = [
-    "cython>=0.29.16",
-    "pysen",
+    "cython>=3.0",
+    "pysen>=0.12.1",
     "types-setuptools",
-    "mypy<=0.910",
-    "black>=19.19b0,<=20.8",
-    "click<8.1.0",
-    "flake8>=3.7,<4",
-    "flake8-bugbear",
-    "isort>=4.3,<5.2.0",
+    "mypy>=1.11",
+    "black>=24.0",
+    "flake8>=7.0",
+    "flake8-bugbear>=24.0",
+    "isort>=5.13,<8",
     "types-decorator",
-    "importlib-metadata<5.0",
 ]
 test = ["pytest", "scipy"]
 marine = ["marine>=0.0.5"]
@@ -81,7 +79,7 @@ __version__ = "{version}"
 # local_scheme = "no-local-version"
 
 [tool.pysen]
-version = "0.10.2"
+version = "0.12.1"
 
 [tool.pysen.lint]
 enable_black = true
@@ -90,6 +88,6 @@ enable_isort = true
 enable_mypy = false # TODO: enable mypy in the future
 mypy_preset = "strict"
 line_length = 88
-py_version = "py38"
+py_version = "py310"
 [[tool.pysen.lint.mypy_targets]]
   paths = ["."]
